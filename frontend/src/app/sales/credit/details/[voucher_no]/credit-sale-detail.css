@@ -1,0 +1,36 @@
+.detail-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    /* margin-top: 30px; */
+    /* background: white; */
+    /* border-radius: 10px; */
+    padding: 0px 30px;
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+}
+
+.detail-box .detail-section {
+    flex: 1;
+}
+
+.detail-box .detail-section h3 {
+    margin-bottom: 20px;
+    color: #2a2a2a;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.detail-box .detail-section .detail-row {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.detail-box .detail-section .detail-row .detail-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.detail-box .detail-section .detail-row .detail-value {
+    margin-left: 10px;
+    color: #333;
+}

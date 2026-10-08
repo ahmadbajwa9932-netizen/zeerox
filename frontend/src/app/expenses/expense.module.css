@@ -1,0 +1,33 @@
+.delete-modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 480px;
+    width: 90%;
+  }
+
+/* Modal form inputs/selects — not covered by globals */
+.delete-modal-content label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.delete-modal-content input,
+.delete-modal-content select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    margin-top: 2px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.delete-modal-content input:focus,
+.delete-modal-content select:focus {
+    border-color: #1b2a41;
+}

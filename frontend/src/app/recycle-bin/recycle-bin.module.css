@@ -1,0 +1,156 @@
+/*  */
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+.tabButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 13px;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.tabButton:hover {
+    background: #f8f9fa;
+    border-color: #cbd5e1;
+}
+
+.tabActive {
+    background: #1b2a41;
+    border-color: #1b2a41;
+    color: #fff;
+}
+
+.tabActive:hover {
+    background: #2c3e5a;
+    border-color: #1b2a41;
+    color: #fff;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+}
+
+.tabButton:not(.tabActive) .badge {
+    background: #eef2f7;
+    color: #1b2a41;
+}
+
+.panel {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eef0f2;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    background: #f8f9fb;
+    color: #4b5563;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eef0f2;
+    white-space: nowrap;
+}
+
+.table td {
+    padding: 10px 12px;
+    font-size: 13px;
+    color: #1f2937;
+    border-bottom: 1px solid #f1f2f4;
+    white-space: nowrap;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table tr:hover td {
+    background: #fafbfc;
+}
+
+.restoreButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 6px;
+    color: #047857;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.restoreButton:hover:not(:disabled) {
+    background: #d1fae5;
+    border-color: #6ee7b7;
+}
+
+.restoreButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.stateBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 60px 20px;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.spinIcon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+   @media (max-width: 768px) {
+    .panel { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table { min-width: 620px; }
+  
+    .tabButton { padding: 6px 11px; font-size: 12px; }
+    .restoreButton { padding: 5px 10px; font-size: 12px; }
+  }
+  

@@ -1,0 +1,78 @@
+.note-viewer {
+    padding: 10px;
+}
+
+.note-heading {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.view-table {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.view-table table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+.view-table th {
+    background: #34495e;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.view-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    vertical-align: top;
+    font-size: 13px;
+}
+
+.view-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.view-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-back { background: #95a5a6; color: white; }
+.btn-back:hover { background: #7f8c8d; }
+
+.btn-edit { background: #f39c12; color: white; }
+.btn-edit:hover { background: #e67e22; }
+
+.btn-pdf { background: #e74c3c; color: white; }
+.btn-pdf:hover { background: #c0392b; }
+
+.btn-print { background: #3498db; color: white; }
+.btn-print:hover { background: #2980b9; }
+
+@media (max-width: 991px) {
+    :global(.sub-container) table { min-width: max-content; }
+  }
+  

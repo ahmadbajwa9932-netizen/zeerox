@@ -1,0 +1,177 @@
+/* ─── RESTOCK / MODAL ────────────────────────────────── */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content form { margin-top: 10px; width: 100%; }
+
+.modal-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-field label { white-space: nowrap; font-size: 13px; }
+
+.modal-field input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.restock-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+
+.restock-btn:hover { background: #0056b3; }
+
+.restock-btnn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    /* margin-right: 10px; */
+}
+
+.restock-btnn:hover { background: #0056b3; }
+
+.close-btn {
+    background: #ccc;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* ─── DANGER ROW (expired) ───────────────────────────── */
+.danger-row {
+    background-color: #ffe6e6 !important;
+    color: rgb(107, 92, 92) !important;
+}
+
+/* ─── PURCHASE DROPDOWN ──────────────────────────────── */
+.purchase-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1000;
+    min-width: 120px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.purchase-dropdown-menu a,
+.purchase-dropdown-menu button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    padding: 8px 12px;
+    font-size: 13px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.purchase-dropdown-menu a:hover,
+.purchase-dropdown-menu button:hover { background: #f0f0f0; }
+
+/* ─── EXPORT/IMPORT OVERLAY ──────────────────────────── */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 20, 30, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.overlayBox {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 32px 40px;
+    text-align: center;
+    min-width: 260px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.overlaySpinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #eef0f3;
+    border-top-color: #1b2a41;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    animation: spin 0.8s linear infinite;
+}
+
+.overlayText {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1b2a41;
+    margin: 0 0 4px 0;
+}
+
+.overlayHint {
+    font-size: 11.5px;
+    color: #9aa1ab;
+    margin: 0;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+   @media (max-width: 768px) {
+    .modal-content { width: 94%; max-width: 400px; padding: 16px; }
+    .modal-field   { flex-direction: column; align-items: stretch; gap: 4px; }
+    .modal-field input { width: 100%; }
+    .restock-btn, .restock-btnn, .close-btn { width: 100%; margin-right: 0; }
+  
+    .overlayBox { min-width: 0; width: 88%; padding: 24px 20px; }
+    .purchase-dropdown-menu { min-width: 140px; }
+  }
+  

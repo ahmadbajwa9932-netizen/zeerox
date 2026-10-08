@@ -1,0 +1,159 @@
+.credit-dropdown {
+    position: relative;
+}
+
+.credit-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1000;
+    min-width: 120px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* --- Credit Sales Search Bar --- */
+#creditSearchType {
+    padding: 0px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    outline: none;
+    font-size: 14px;
+}
+#creditSearchType:focus {
+    border-color: #007bff;
+}
+#creditSearchbar-dropdown {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* used to hide rows during search */
+.search-hidden { display: none !important; }
+
+/* marker for rows explicitly opened by toggle */
+.open-by-toggle {}
+
+/* ensure nested table keeps structure */
+.sub-container table { width: 100%; }
+
+/* button styling inside dropdown */
+.credit-action-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #000;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.credit-action-btn:hover {
+    background: #f0f0f0;
+    color: #000;
+}
+.btn-dark {
+    background-color:#929299;
+    color: #fff;
+    border-radius:3px;
+    width:90px;
+}
+.btn-warning, .btn-danger{
+    border-radius: 3px;
+    margin-left: 5px;
+    border:1px;
+    padding:7px 10px;
+    cursor: pointer;
+}
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+.btn-danger:hover{
+    background-color:rgb(163, 47, 59);
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+.btn-warning:hover{
+    background-color:rgb(216, 164, 6);
+}
+
+#paymentModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1001;
+    width: 320px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#modalBackdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+}
+
+#paymentModal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#paymentModal input, #paymentModal select, #paymentModal button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#paymentModal button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-btn {
+    background: #d33;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+   @media (max-width: 480px) {
+    /* #paymentModal is a fixed 320px box */
+    #paymentModal { width: 90%; max-width: 320px; padding: 16px; }
+    #paymentModal input,
+    #paymentModal select,
+    #paymentModal button { padding: 9px; font-size: 15px; }
+  
+    .credit-dropdown-menu { min-width: 140px; }
+    .credit-action-btn { width: 100%; }
+  }  
+
+  @media (max-width: 991px) {
+    #creditSearchType { width: 118px !important; }
+  }
+  

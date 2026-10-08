@@ -1,0 +1,303 @@
+/* ══════════════════════════════════════════════
+   TOKENS — matched to sale.css / ZeeroX POS theme
+══════════════════════════════════════════════ */
+:root {
+    --wir-bg:        #f8f9fa;
+    --wir-surface:   #ffffff;
+    --wir-border:    #ddd;
+    --wir-primary:   #0a3f6b;
+    --wir-primary-h: #0d4f84;
+    --wir-success:   #27ae60;
+    --wir-danger:    #dc3545;
+    --wir-warning:   #d97706;
+    --wir-text:      #2c3e50;
+    --wir-muted:     #6c757d;
+    --wir-label:     #555;
+    --wir-radius:    4px;
+    --wir-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.wir-wrap {
+    padding: 12px;
+    max-width: none;
+    margin: 0;
+    background: var(--wir-bg);
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+/* Page title strip */
+.wir-page-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.wir-page-head .wir-icon {
+    width: 34px;
+    height: 34px;
+    background: var(--wir-primary);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.wir-page-head .wir-icon svg { color: #fff; }
+.wir-page-head h1 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+.wir-page-head p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: var(--wir-muted);
+}
+
+/* ══════════════════════════════════════════════
+   ALERTS
+══════════════════════════════════════════════ */
+.wir-alert {
+    padding: 8px 12px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.wir-alert.success {
+    background: #eafaf0;
+    color: #1e7e34;
+    border-left: 4px solid #27ae60;
+}
+.wir-alert.error {
+    background: #fdecea;
+    color: #c0392b;
+    border-left: 4px solid #dc3545;
+}
+
+/* ══════════════════════════════════════════════
+   TWO-COLUMN GRID
+══════════════════════════════════════════════ */
+.wir-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 8px;
+    align-items: start;
+}
+@media (max-width: 900px) {
+    .wir-grid { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════
+   CARD
+══════════════════════════════════════════════ */
+.wir-card {
+    background: var(--wir-surface);
+    border: none;
+    border-radius: 4px;
+    box-shadow: var(--wir-shadow-sm);
+    overflow: visible;
+}
+.wir-table-wrap { overflow-x: auto; overflow-y: auto; height: 300px; }
+.wir-card-head {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.wir-card-head span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    text-transform: none;
+    letter-spacing: normal;
+}
+.wir-card-head svg { color: var(--wir-primary); flex-shrink: 0; }
+.wir-card-body { padding: 8px; }
+
+/* ══════════════════════════════════════════════
+   LEFT PANEL
+══════════════════════════════════════════════ */
+.wir-left { display: flex; flex-direction: column; gap: 8px; }
+
+/* ── Search ── */
+.wir-search-wrap { position: relative; }
+.wir-search-wrap input {
+    width: 100%;
+    padding: 6px 30px 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 12px;
+    height: 30px;
+    color: #333;
+    box-sizing: border-box;
+    background: #fff;
+    transition: border-color .2s, box-shadow .2s;
+}
+.wir-search-wrap input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52,152,219,.2);
+}
+.wir-search-icon {
+    position: absolute; right: 9px; top: 50%; transform: translateY(-50%);
+    color: var(--wir-muted); pointer-events: none;
+}
+.wir-scan-hint {
+    font-size: 11px; color: var(--wir-muted); margin-top: 6px;
+    display: flex; align-items: center; gap: 4px;
+}
+.wir-scan-hint kbd {
+    background: #f1f1f1; border: 1px solid #ddd; border-radius: 3px;
+    padding: 1px 5px; font-size: 10px;
+}
+
+
+.dd-item {
+    padding: 6px 8px; cursor: pointer; border-bottom: 1px solid #f0f0f0;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 8px; font-size: 12px; transition: background .15s;
+}
+.dd-item:last-child { border-bottom: none; }
+.dd-item:hover { background-color: #e8f4f8; }
+.dd-item.dd-active { background-color: #e6f0ff; }
+.dd-item .dd-name { font-weight: 600; color: #333; font-size: 13px; }
+.dd-item .dd-meta { font-size: 11px; color: var(--wir-muted); margin-top: 2px; }
+.dd-item .dd-price { font-weight: 700; color: #28a745; white-space: nowrap; font-size: 12px; }
+.dd-empty { padding: 15px; text-align: center; color: var(--wir-muted); font-style: italic; font-size: 13px; }
+
+/* ── Customer fields ── */
+.wir-field { margin-bottom: 8px; }
+.wir-field:last-child { margin-bottom: 0; }
+.wir-field label {
+    display: block; font-size: 12px; color: #555; margin-bottom: 2px; font-weight: 500;
+}
+.wir-field input {
+    width: 100%; padding: 4px 6px; border: 1px solid #ddd; border-radius: 3px;
+    font-size: 12px; height: 26px; box-sizing: border-box; background: #fff;
+    transition: border-color .2s, box-shadow .2s;
+}
+.wir-field input:focus {
+    border-color: #3498db; outline: none; box-shadow: 0 0 0 2px rgba(52,152,219,.2);
+}
+.wir-field input::placeholder { color: #aaa; }
+
+/* ══════════════════════════════════════════════
+   RIGHT PANEL
+══════════════════════════════════════════════ */
+.wir-right { display: flex; flex-direction: column; gap: 8px; }
+
+.btn-remove-row {
+    background: #e74c3c; border: none; color: #fff; cursor: pointer;
+    font-size: 12px; font-weight: bold; padding: 3px 7px; border-radius: 2px;
+    transition: background .2s; line-height: 1;
+}
+.btn-remove-row:hover { color: #fff; background: #c0392b; }
+.empty-state-row td {
+    height: 267px; text-align: center !important; vertical-align: middle !important; padding: 20px !important; color: #999 !important;
+    font-style: italic; font-size: 13px; box-sizing: border-box;
+}
+.empty-state-icon { display: block; margin: 0 auto 8px; width: 34px; height: 34px; opacity: .35; }
+
+/* ── Sale-level adjustment ── */
+.sale-adj-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px 12px; }
+@media (max-width: 900px) { .sale-adj-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .sale-adj-grid { grid-template-columns: 1fr; } }
+
+.sa-field label { display: block; font-size: 12px; color: #555; margin-bottom: 2px; font-weight: 500; }
+.sa-field select, .sa-field input[type="number"] {
+    width: 100%; padding: 4px 6px; border: 1px solid #ddd; border-radius: 3px;
+    font-size: 12px; height: 26px; color: #333; box-sizing: border-box; background: #fff;
+    transition: border-color .2s;
+}
+.sa-field select:focus, .sa-field input[type="number"]:focus {
+    border-color: #3498db; outline: none; box-shadow: 0 0 0 2px rgba(52,152,219,.2);
+}
+
+/* ── Summary — matches .totals-section / .grand-total ── */
+.wir-summary {
+    background: #ecf0f1; border: 1px solid #bdc3c7; border-radius: 3px; padding: 8px 12px;
+}
+.wir-summary-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 5px 0; border-bottom: 1px solid #dfe4e6; font-size: 13px;
+}
+.wir-summary-row:last-child { border-bottom: none; }
+.wir-summary-row .lbl { color: #2c3e50; font-weight: 500; }
+.wir-summary-row .val { font-weight: 600; color: #2c3e50; }
+.wir-summary-row.disc .val { color: #dc3545; }
+.wir-summary-row.tax  .val { color: #d97706; }
+.wir-summary-row.total {
+    margin-top: 4px; padding: 8px; border-top: none;
+    background: #2c3e50; border-radius: 3px;
+}
+.wir-summary-row.total .lbl { font-size: 13px; font-weight: bold; color: #fff !important; }
+.wir-summary-row.total .val { font-size: 15px; font-weight: bold; color: #fff !important; }
+
+/* ── Bottom bar ── */
+.wir-bottom { display: flex; gap: 10px; align-items: flex-start; }
+.wir-notes { flex: 1; }
+.wir-notes textarea {
+    width: 100%; padding: 6px 8px; border: 1px solid #ddd; border-radius: 3px;
+    font-size: 12px; color: #333; resize: vertical; box-sizing: border-box;
+    min-height: 60px; transition: border-color .2s; font-family: inherit;
+}
+.wir-notes textarea:focus {
+    border-color: #3498db; outline: none; box-shadow: 0 0 0 2px rgba(52,152,219,.2);
+}
+.wir-actions { display: flex; flex-direction: column; gap: 6px; padding-top: 2px; }
+
+.btn-submit {
+    background: #27ae60; color: #fff; border: none; padding: 8px 20px;
+    border-radius: 3px; font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background .3s, transform .2s, box-shadow .2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1); white-space: nowrap;
+}
+.btn-submit:hover { background: #229954; transform: translateY(-1px); box-shadow: 0 3px 6px rgba(0,0,0,.15); }
+.btn-submit:active { transform: translateY(0); }
+.btn-submit:disabled { background: #a3d9b8; cursor: not-allowed; box-shadow: none; transform: none; }
+
+.btn-clear {
+    background: #6c757d; color: #fff; border: none; padding: 8px 16px;
+    border-radius: 3px; font-size: 13px; cursor: pointer; transition: background .2s; white-space: nowrap;
+}
+.btn-clear:hover { background: #5a6268; }
+
+/* ── Scan active ── */
+.scan-active {
+    border-color: #27ae60 !important; box-shadow: 0 0 0 2px rgba(39,174,96,.2) !important;
+}
+
+/* ── Badge — matches the category-filter pill in sale.css ── */
+.wir-badge {
+    display: inline-flex; align-items: center; background: #3498db; color: #fff;
+    border: none; border-radius: 12px; padding: 2px 8px; font-size: 11px;
+    font-weight: 600; margin-left: 6px; vertical-align: middle;
+    text-transform: none; letter-spacing: 0;
+}
+
+@media (max-width: 991px) {
+    .wir-wrap { padding: 8px; }
+    .wir-table-wrap { height: auto; max-height: 340px; overflow: auto; }
+  
+    /* percentage column widths need a concrete width to resolve
+       against — max-content makes them collapse into one column */
+    .wir-table-wrap table {
+      min-width: 880px;
+      width: 880px;
+      table-layout: fixed;
+    }
+  
+    .wir-card-body { padding: 6px; }
+    .wir-actions { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+  }
+  

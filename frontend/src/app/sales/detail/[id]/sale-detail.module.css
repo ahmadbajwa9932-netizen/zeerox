@@ -1,0 +1,143 @@
+/* sale-detail.module.css */
+.ledgerGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+@media (max-width: 780px) {
+    .ledgerGrid { grid-template-columns: 1fr; }
+}
+
+.ledgerPanel {
+    background: #ffffff;
+    border: 1px solid #e5e0d8;
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 2px rgba(15, 15, 15, 0.04);
+}
+.ledgerPanel h3 {
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #23201c;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0ece3;
+}
+.ledgerPanel :global(.detail-row) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 5px 0;
+    font-size: 13px;
+}
+.ledgerPanel :global(.detail-label) {
+    color: #6b665c;
+    flex-shrink: 0;
+}
+.ledgerPanel :global(.detail-value) {
+    color: #23201c;
+    text-align: right;
+}
+
+.ledgerCard {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e5e0d8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(15, 15, 15, 0.04);
+}
+
+.ledgerCardAccent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #33406e, #6b7db8);
+}
+
+.ledgerCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 18px 12px;
+    border-bottom: 1px solid #eee6d8;
+}
+
+.ledgerCardIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    color: #33406e;
+    background: #eef0f7;
+}
+
+.ledgerCardEyebrow {
+    margin: 0 0 2px;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a8478;
+    font-weight: 600;
+}
+.ledgerCardTitle {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #23201c;
+}
+
+.ledgerCardBody {
+    padding: 12px 18px 4px;
+}
+.ledgerCardBody :global(.detail-row) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    padding: 7px 0;
+}
+.ledgerCardBody :global(.detail-label) {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #45403a;
+}
+.ledgerCardBody :global(.detail-value) {
+    font-size: 15px;
+    font-weight: 700;
+    color: #23201c;
+}
+
+.ledgerCardTotal {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 6px 18px 16px;
+    padding-top: 10px;
+    border-top: 2px double #d8d0c2;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+}
+.ledgerCardTotal span {
+    font-size: 12px;
+    color: #6b665c;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.ledgerCardTotal strong {
+    font-size: 19px;
+    font-weight: 700;
+    color: #23201c;
+}
+
+@media (max-width: 991px) {
+    /* the 3-column payments table was shrink-to-fitting — make it fill */
+    :global(.sub-container) table { width: 100% !important; }
+  }
+  

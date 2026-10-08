@@ -1,0 +1,30 @@
+END USER LICENSE AGREEMENT (EULA)
+ZeeroX - Shop Inventory POS System
+
+Please read this agreement carefully before installing the software.
+
+TERMS AND CONDITIONS:
+
+1. The Client will provide correct business information, system requirements, and any required documents on time.
+
+2. The Provider will keep the Client's data private, but any data loss caused by hardware faults, viruses, or power issues will be the Client's responsibility.
+
+3. Copying, sharing, cracking, bypassing, or reverse-engineering ZEEROX is strictly prohibited; any violation will result in immediate license suspension and legal action.
+
+4. The software is given on a yearly license; when the license expires, the system will lock automatically, and renewal is required.
+
+5. The Provider has the right to access the software for security, encryption, and updates, and may change passwords or security settings when needed.
+
+6. If hardware is not provided by the Provider, the Client must maintain their own system according to the software requirements; any mismatch or system issues are not the Provider's responsibility.
+
+7. All payments (demo advance, yearly fee, hardware charges) are non-refundable and must be paid on time; services may be stopped if payments are not made.
+
+8. Monthly service/support (if agreed) will only cover software support; hardware repair, network issues, or power-related problems are not included.
+
+9. The Provider's rules, policies, and updates will always apply, and the Client must follow them.
+
+10. This clause covers all privacy terms, service rules, legal rights, and Client responsibilities, and both parties fully agree to it.
+
+By clicking "I Agree", you accept all terms and conditions stated above.
+
+Copyright © 2025 ZIT Solutions. All rights reserved.

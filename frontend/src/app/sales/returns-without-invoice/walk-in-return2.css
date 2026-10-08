@@ -1,0 +1,35 @@
+/* ── Dropdown ── */
+/* Product list fills the items-table area while searching (like sales/create) */
+#productDropdown {
+    height: 100%; overflow-y: auto; background: #fff;
+}
+
+
+/* ── Table — matches #itemsTable in sale.css ── */
+#returnItemsTable { width: 100%; border-collapse: collapse; font-size: 12px; background: #fff; }
+#returnItemsTable th {
+    background: #34495e !important; color: #fff !important;
+    padding: 8px 4px !important; text-align: center !important;
+    border-right: 1px solid #2c3e50 !important; border-bottom: none !important;
+    white-space: nowrap !important; font-size: 13px !important;
+    font-weight: 600 !important; text-transform: none !important; letter-spacing: normal !important;
+}
+#returnItemsTable th:last-child { border-right: none !important; }
+#returnItemsTable td {
+    padding: 6px 4px !important; border-right: 1px solid #eee !important;
+    border-bottom: 1px solid #eee !important; vertical-align: middle !important;
+    text-align: center !important; background: transparent !important; color: #333 !important;
+}
+#returnItemsTable td:last-child { border-right: none !important; }
+#returnItemsTable tr:hover td { background-color: #f8f9fa !important; }
+
+#returnItemsTable input[type="number"],
+#returnItemsTable select {
+    width: 100%; padding: 2px; border: 1px solid #ddd; border-radius: 3px;
+    font-size: 12px; height: 22px; color: #333; box-sizing: border-box;
+    background: #fff; text-align: center; transition: border-color .15s;
+}
+#returnItemsTable input[type="number"]:focus,
+#returnItemsTable select:focus {
+    background: #e8f4f8; outline: 1px solid #3498db; border-color: #3498db;
+}

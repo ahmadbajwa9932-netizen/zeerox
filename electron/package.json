@@ -1,0 +1,80 @@
+{
+  "name": "zeerox-pos",
+  "version": "1.0.0",
+  "description": "ZeeroX POS Desktop Application",
+  "main": "main.js",
+  "author": "ZWZ",
+  "license": "ISC",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^44.2.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.zwz.zeeroxpos",
+    "productName": "ZeeroX POS",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon (2).ico"
+    },
+    "files": [
+      "main.js",
+      "assets/**/*"
+    ],
+    "afterPack": "./afterPack.js",
+    "extraResources": [
+      {
+        "from": "../backend",
+        "to": "backend"
+      },
+      {
+        "from": "../frontend/.next/standalone",
+        "to": "frontend/.next/standalone"
+      },
+      {
+        "from": "../frontend/.next/static",
+        "to": "frontend/.next/standalone/.next/static"
+      },
+      {
+        "from": "../frontend/public",
+        "to": "frontend/.next/standalone/public"
+      },
+      {
+        "from": "../database/schema.sql",
+        "to": "database/schema.sql"
+      },
+      {
+        "from": "tools/node.exe",
+        "to": "tools/node.exe"
+      },
+      {
+        "from": "tools/rclone.exe",
+        "to": "tools/rclone.exe"
+      },
+      {
+        "from": "backup-script.js",
+        "to": "backup-script.js"
+      },
+      {
+        "from": "run-backup.ps1",
+        "to": "run-backup.ps1"
+      }
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "license": "license.txt",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "include": "installer.nsh",
+      "warningsAsErrors": false
+    }
+  }
+}

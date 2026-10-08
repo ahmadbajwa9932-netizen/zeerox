@@ -1,0 +1,195 @@
+
+/* ─── Account Detail Header ─────────────────────────── */
+.accountHeaderCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 22px 26px;
+  background: linear-gradient(135deg, #1b2a41 0%, #243b55 100%);
+  border-radius: 8px;
+  color: #fff;
+  margin-bottom: 16px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.12);
+}
+
+.accountHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.accountAvatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+
+.accountAvatar.jazzcash  { background: #e2136e; }
+.accountAvatar.easypaisa { background: #38b34a; }
+.accountAvatar.mcb       { background: #0b3d63; }
+.accountAvatar.hbl       { background: #0b5c2f; }
+.accountAvatar.other     { background: #6b7280; }
+
+.accountHeaderInfo h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.accountHeaderMeta {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+}
+
+.accountHeaderMeta span strong {
+  color: #fff;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.accountHeaderRight {
+  text-align: right;
+}
+
+.accountBalanceLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(255,255,255,0.75);
+}
+
+.accountBalanceValue {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.accountStatusRow {
+  margin-top: 10px;
+}
+
+.accountStatusRow .statusBadge.active {
+  background: rgba(46, 204, 113, 0.2);
+  color: #7ee8a8;
+}
+
+.accountStatusRow .statusBadge.inactive {
+  background: rgba(231, 76, 60, 0.2);
+  color: #ff8a80;
+}
+
+.bankBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+  }
+  
+  .bankBadge.jazzcash  { background: #e2136e; }
+  .bankBadge.easypaisa { background: #38b34a; }
+  .bankBadge.mcb       { background: #1b2a41; }
+  .bankBadge.hbl       { background: #0b5c2f; }
+  .bankBadge.other     { background: #6b7280; }
+  
+  .balancePill {
+    font-weight: 600;
+    color: #1b2a41;
+  }
+  
+  .statusBadge {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .statusBadge.active   { background: #e6f7ec; color: #1e7e34; }
+  .statusBadge.inactive { background: #fdecea; color: #b91c1c; }
+  
+  .formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  .fullWidth { grid-column: 1 / -1; }
+  
+  .formGroup label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #35302d;
+  }
+  
+  .formGroup input,
+  .formGroup select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .formGroup input:focus,
+  .formGroup select:focus {
+    outline: none;
+    border-color: #1b2a41;
+  }
+  
+  .paymentsModalContent {
+    max-width: 600px;
+    width: 90%;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  .emptyState {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-size: 13px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .accountHeaderCard  { padding: 16px; gap: 12px; }
+  .accountHeaderLeft  { gap: 12px; }
+  .accountHeaderRight { width: 100%; text-align: left; }
+  .accountHeaderInfo h2   { font-size: 18px; }
+  .accountHeaderMeta      { flex-wrap: wrap; gap: 6px; }
+  .accountBalanceValue    { font-size: 20px; }
+
+  .formGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .accountAvatar { width: 44px; height: 44px; }
+  .accountStatusRow { flex-wrap: wrap; gap: 6px; }
+}
+
+@media (max-width: 991px) {
+  :global(.sub-container) table { width: 100% !important; }
+}

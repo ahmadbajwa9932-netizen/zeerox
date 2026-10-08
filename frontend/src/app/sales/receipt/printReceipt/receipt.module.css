@@ -1,0 +1,377 @@
+/* receipt.module.css */
+
+.receiptPage {
+  background: #fff;
+  min-height: 100vh;
+}
+
+.receiptPage {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.receiptPage :global(*) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media print {
+  .noPrint { display: none !important; }
+  .receiptPage { background: #fff; padding: 0; }
+}
+
+
+.printContainer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  gap: 20px;
+  top: 10px;
+  right: 10px;
+  z-index: 2000;
+}
+
+.printBtn {
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.paidOverlay {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  font-weight: 900;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  pointer-events: none;
+  z-index: 1000;
+  border-radius: 50%;
+  padding: 20px 35px;
+  text-align: center;
+  display: inline-block;
+}
+.overlayUnpaid  { font-size: 32px; color: rgba(0,0,0,0.25); border: 6px solid rgba(0,0,0,0.25); }
+.overlayPartial { font-size: 19px; color: rgba(255,165,0,0.3); border: 6px solid rgba(255,165,0,0.3); padding: 20px 20px; }
+.overlayPaid    { font-size: 32px; color: rgba(0,128,0,0.3); border: 6px solid rgba(0,128,0,0.3); }
+
+/* ===== base page box — equivalent of Laravel's <body> (80mm branch) ===== */
+.design1,
+.design2,
+.design3 {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 10px;
+  width: 80mm;
+  margin: 0 auto;
+  padding: 10mm;
+  background: #fff;
+  color: #000;
+}
+.design3 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+.paperA4 { font-size: 12px; width: 210mm; }
+.paperA5 { font-size: 11px; width: 148mm; }
+
+/* ===== DESIGN 1 — CLASSIC DASHED ===== */
+.design1 .header {
+  text-align: center;
+  border-bottom: 2px dashed #000;
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+}
+.design1 .divider {
+  border-top: 1px dashed #000;
+  margin: 8px 0;
+}
+.design1 .dividerSolid {
+  border-top: 2px solid #000;
+  margin: 8px 0;
+}
+.design1 .row {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0;
+  font-size: 10px;
+}
+.design1 .label {
+  font-weight: bold;
+  min-width: 60px;
+}
+.design1 table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 5px 0;
+  font-size: 10px;
+}
+.design1 table th {
+  border-bottom: 1px solid #000;
+  padding: 3px 2px;
+  text-align: left;
+  font-weight: bold;
+}
+.design1 table td {
+  padding: 3px 2px;
+  vertical-align: top;
+}
+.design1 .totalSection {
+  text-align: right;
+  margin: 8px 0;
+}
+.design1 .totalRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0;
+  font-size: 10px;
+}
+.design1 .grandTotal {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 8px 0;
+  padding: 8px 0 4px 0;
+  border-top: 2px solid #000;
+}
+.design1 .noticeBox {
+  border: 1px dashed #000;
+  padding: 5px;
+  margin: 8px 0;
+  text-align: center;
+  font-size: 10px;
+}
+.design1 .footer {
+  text-align: center;
+  margin-top: 15px;
+  border-top: 2px dashed #000;
+  padding-top: 8px;
+  font-size: 9px;
+}
+
+/* ===== DESIGN 2 — MODERN CARD ===== */
+.design2 .header {
+  text-align: center;
+  color: #000;
+  padding: 15px;
+  margin: -10mm -10mm 10px -10mm;
+  border-radius: 0 0 15px 15px;
+}
+.design2 .infoCard {
+  background: #f8f9fa;
+  border-left: 4px solid black;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+.design2 .row {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  font-size: 10px;
+}
+.design2 .label {
+  font-weight: 600;
+  color: black;
+}
+.design2 table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 10px 0;
+  font-size: 10px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.design2 table thead {
+  color: black;
+}
+.design2 table th {
+  padding: 8px 5px;
+  text-align: left;
+  font-weight: 600;
+}
+.design2 table td {
+  padding: 8px 5px;
+  border-bottom: 1px solid #e9ecef;
+}
+.design2 table tbody tr:last-child td {
+  border-bottom: none;
+}
+.design2 table tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+.design2 .totalBox {
+  color: #000;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+.design2 .totalRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  font-size: 10px;
+}
+.design2 .grandTotal {
+  font-size: 13px;
+  font-weight: bold;
+  padding-top: 10px;
+  border-top: 2px solid rgba(255,255,255,0.3);
+}
+.design2 .footer {
+  text-align: center;
+  margin-top: 7px;
+  padding-top: 10px;
+  border-top: 2px solid #e9ecef;
+  color: #6c757d;
+  font-size: 9px;
+}
+
+/* ===== DESIGN 3 — MINIMAL CLEAN ===== */
+.design3 .header {
+  text-align: center;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #000;
+}
+.design3 .sectionTitle {
+  font-weight: 700;
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 16px 0 8px 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #000;
+}
+.design3 .infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 10px 0;
+}
+.design3 .infoItem {
+  font-size: 10px;
+}
+.design3 .infoLabel {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 2px;
+}
+.design3 table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 10px;
+}
+.design3 table th {
+  border-bottom: 1px solid #000;
+  padding: 6px 3px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.design3 table td {
+  padding: 5px 2px;
+}
+.design3 table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+.design3 .summaryBox {
+  margin: 15px 0 10px 0;
+  padding: 10px 0 0 0;
+  border-top: 1px solid #000;
+}
+.design3 .summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  font-size: 10px;
+}
+.design3 .totalRow {
+  font-size: 13px;
+  font-weight: 700;
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1.5px solid #000;
+}
+.design3 .paymentInfo {
+  background: transparent;
+  padding: 10px 0 0 0;
+  margin: 10px 0 0 0;
+  border-top: 1px solid #000;
+}
+.design3 .footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #000;
+  font-size: 8.5px;
+  letter-spacing: 0.3px;
+}
+.design3 .statusBadge {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-left: 8px;
+}
+
+/* Common utilities */
+.textRight { text-align: right; }
+.textCenter { text-align: center; }
+
+
+/* ── neutralize globals.css table styling bleeding into the receipt ── */
+.receiptPage :global(table) {
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.receiptPage :global(th) {
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  font-weight: normal;
+  padding: 0;
+  text-align: inherit;
+}
+
+.receiptPage :global(th:first-child),
+.receiptPage :global(th:last-child) {
+  border-radius: 0;
+}
+
+.receiptPage :global(td) {
+  padding: 0;
+  font-size: inherit;
+  text-align: inherit;
+  border-bottom: none;
+}
+
+.receiptPage :global(td:first-child),
+.receiptPage :global(td:last-child) {
+  border-left: none;
+  border-right: none;
+}
+
+.receiptPage :global(tr:nth-child(odd)),
+.receiptPage :global(tr:nth-child(even)),
+.receiptPage :global(tr:hover) {
+  background-color: transparent;
+}
+
+/* ── force Courier through design3, since globals.css's `* { font-family }` overrides inheritance ── */
+.design3 :global(*) {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}

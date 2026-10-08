@@ -1,0 +1,147 @@
+/* ✅ Partial Return Page Styles */
+
+.partial-return-container {
+    width: 1200px;
+    max-width: 1300px;
+    margin: 15px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.partial-return-container h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #222;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.sale-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.sale-info p {
+    margin: 5px 0;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.return-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.return-items-table th,
+.return-items-table td {
+    padding: 10px 12px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+    font-size: 14px;
+}
+
+
+.return-items-table td {
+    font-size: 13px;
+}
+
+.return-items-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #222 !important;
+}
+
+.return-items-table input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.return-notes-textarea {
+    width: 100%;
+    margin-top: 12px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.refund-total {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.refund-summary p {
+    font-size: 16px;
+    color: #333;
+    margin-top: 8px;
+}
+
+.form-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.form-actions .btn-success,
+.form-actions .btn-secondary {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 10px;
+    transition: background 0.2s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+/* ─── BACK BUTTON (mirrors components/back_button.css usage) ───── */
+.boton-elegante {
+    background: #95a5a6;
+    border-radius: 5px;
+    border: none;
+    width: auto;
+    padding: 7px 12px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.boton-elegante:hover {
+    background: #7f8c8d;
+}

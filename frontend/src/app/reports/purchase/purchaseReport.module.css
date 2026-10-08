@@ -1,0 +1,682 @@
+/* ========================================
+   PURCHASE REPORT STYLES — Next.js version
+   Self-contained: own --pr- variable scope,
+   no dependency on salesReport.css.
+   Import this in app/reports/purchase/page.js:
+   import styles from './purchaseReport.module.css';
+   ======================================== */
+
+   :global(:root) {
+    --pr-bg: #f7f7f8;
+    --pr-surface: #ffffff;
+    --pr-border: #e4e5e9;
+    --pr-border-strong: #d3d5da;
+    --pr-text: #1c1e21;
+    --pr-text-muted: #6b6f76;
+    --pr-text-faint: #9799a1;
+  
+    --pr-accent: #1b2a41;
+    --pr-accent-hover: #14202f;
+    --pr-accent-soft: rgba(27, 42, 65, 0.06);
+    --pr-accent-soft-strong: rgba(27, 42, 65, 0.1);
+  
+    --pr-success: #2f7a4d;
+    --pr-success-soft: #eaf3ed;
+    --pr-danger: #b3413a;
+    --pr-danger-soft: #f7ecea;
+    --pr-warning: #a86a1d;
+    --pr-warning-soft: #f7f0e4;
+    --pr-info: #2f7a94;
+    --pr-info-soft: #eaf2f6;
+  
+    --pr-radius: 6px;
+    --pr-radius-sm: 4px;
+  }
+  
+  
+  /* Buttons */
+  :global(.btn) {
+    padding: 0.6rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: var(--pr-radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-primary {
+    background: var(--pr-accent);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background: var(--pr-accent-hover);
+  }
+  
+  .btn-block {
+    width: 100%;
+  }
+  
+  /* Filter Card */
+  .filter-card {
+    background: var(--pr-surface);
+    padding: 1.25rem;
+    border: 1px solid var(--pr-border);
+    border-radius: var(--pr-radius);
+    margin-bottom: 1.5rem;
+  }
+  
+  .filter-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: end;
+  }
+  
+  .filter-col {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-label {
+    font-weight: 500;
+    color: var(--pr-text-muted);
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  
+  .filter-select,
+  .filter-input {
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--pr-border-strong);
+    border-radius: var(--pr-radius-sm);
+    font-size: 0.9rem;
+    background: var(--pr-surface);
+    color: var(--pr-text);
+    transition: border-color 0.15s ease;
+  }
+  
+  .filter-select:focus,
+  .filter-input:focus {
+    outline: none;
+    border-color: var(--pr-accent);
+  }
+  
+  .filter-select-sm {
+    padding: 0.35rem 0.55rem;
+    border: 1px solid var(--pr-border-strong);
+    border-radius: var(--pr-radius-sm);
+    font-size: 0.8rem;
+    background: var(--pr-surface);
+    color: var(--pr-text);
+  }
+  
+  /* Summary / Metric Cards — 4 per row, wraps to a second row of 3 */
+  .purchase-comparison-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .metric-card {
+    background: var(--pr-surface);
+    padding: 1.1rem 1.15rem;
+    border: 1px solid var(--pr-border);
+    border-radius: var(--pr-radius);
+    text-align: left;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  .metric-card:hover {
+    border-color: var(--pr-border-strong);
+    box-shadow: 0 2px 8px rgba(20, 21, 24, 0.06);
+  }
+  
+  .metric-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .metric-head-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+  
+  .metric-icon {
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  
+  .metric-card.metric-primary .metric-icon { color: var(--pr-accent); }
+  .metric-card.metric-success .metric-icon { color: var(--pr-success); }
+  .metric-card.metric-info .metric-icon { color: var(--pr-info); }
+  .metric-card.metric-warning .metric-icon { color: var(--pr-warning); }
+  .metric-card.metric-danger .metric-icon { color: var(--pr-danger); }
+  
+  .metric-label {
+    font-size: 0.76rem;
+    color: var(--pr-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .metric-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--pr-text);
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  /* Eye toggle */
+  .eye-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--pr-text-faint);
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    transition: color 0.15s ease;
+  }
+  
+  .eye-btn:hover {
+    color: var(--pr-accent);
+  }
+  
+  /* Tabs */
+  .tabs-container {
+    background: var(--pr-surface);
+    border: 1px solid var(--pr-border);
+    border-radius: var(--pr-radius);
+    overflow: hidden;
+  }
+  
+  .tabs-nav {
+    display: flex;
+    border-bottom: 2px solid var(--pr-border);
+    background: var(--pr-surface);
+    padding: 0;
+    overflow-x: auto;
+  }
+  
+  .tab-link {
+    flex: 1;
+    padding: 0.85rem 1.1rem;
+    text-decoration: none;
+    color: var(--pr-text-muted);
+    font-weight: 500;
+    font-size: 0.88rem;
+    text-align: center;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    border-bottom: 3px solid transparent;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+  }
+  
+  .tab-link i {
+    font-size: 0.85rem;
+  }
+  
+  .tab-link:hover {
+    color: var(--pr-accent);
+    background: var(--pr-accent-soft);
+  }
+  
+  .tab-link.active {
+    color: var(--pr-accent);
+    border-bottom-color: var(--pr-accent);
+    background: var(--pr-accent-soft);
+    font-weight: 700;
+  }
+  
+  .tabs-content {
+    padding: 1.75rem;
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+  
+  /* Content Cards */
+  .content-card {
+    background: var(--pr-surface);
+    border: 1px solid var(--pr-border);
+    border-radius: var(--pr-radius);
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+  
+  .card-header,
+  .card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.95rem 1.25rem;
+    border-bottom: 1px solid var(--pr-border);
+    border-left: 3px solid var(--pr-accent);
+    background: var(--pr-accent-soft);
+  }
+  
+  .card-header h5,
+  .card-header-flex h5 {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--pr-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  
+  .card-header-flex > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .header-controls {
+    display: flex;
+    gap: 0.6rem;
+  }
+  
+  .card-body {
+    padding: 1.25rem;
+  }
+  
+  /* Chart expand button */
+  .chart-expand-btn {
+    background: transparent;
+    border: 1px solid var(--pr-border-strong);
+    border-radius: var(--pr-radius-sm);
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--pr-text-muted);
+    transition: all 0.15s ease;
+    line-height: 1;
+  }
+  
+  .chart-expand-btn:hover {
+    background: var(--pr-accent-soft);
+    color: var(--pr-accent);
+    border-color: var(--pr-accent);
+  }
+  
+  /* Data Tables */
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  
+  .data-table thead {
+    background: var(--pr-bg);
+    color: var(--pr-text-muted);
+  }
+  
+  .data-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--pr-border);
+  }
+  
+  .data-table tbody tr {
+    border-bottom: 1px solid var(--pr-border);
+    transition: background 0.1s ease;
+  }
+  
+  .data-table tbody tr:hover {
+    background: var(--pr-bg);
+  }
+  
+  .data-table td {
+    padding: 0.8rem 1rem;
+    color: var(--pr-text);
+  }
+  
+  .text-right { text-align: right !important; }
+  .text-center { text-align: center !important; }
+  
+  .text-success { color: var(--pr-success); font-weight: 600; }
+  .text-danger { color: var(--pr-danger); font-weight: 600; }
+  .text-muted { color: var(--pr-text-faint); font-size: 0.85rem; }
+  
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.55rem;
+    border-radius: var(--pr-radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .badge-secondary {
+    background: var(--pr-bg);
+    color: var(--pr-text-muted);
+    border: 1px solid var(--pr-border);
+  }
+  
+  /* Grid Layouts */
+  .grid-two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .grid-three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Stat Cards (used in Stock Alerts tab) */
+  .stat-card {
+    background: var(--pr-surface);
+    padding: 1.5rem;
+    border: 1px solid var(--pr-border);
+    border-radius: var(--pr-radius);
+    text-align: left;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--pr-text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .stat-value {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--pr-text);
+    letter-spacing: -0.01em;
+  }
+  
+  /* Charts */
+  .chart-canvas {
+    position: relative;
+    height: 300px;
+    width: 100%;
+  }
+  
+  .chart-canvas-lg {
+    position: relative;
+    height: 380px;
+    width: 100%;
+  }
+  
+  /* Loading States */
+  .loading-state,
+  .loading-cell {
+    text-align: center;
+    padding: 3rem;
+  }
+  
+  .spinner {
+    border: 3px solid var(--pr-border);
+    border-top: 3px solid var(--pr-accent);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: pr-spin 0.8s linear infinite;
+    margin: 0 auto;
+  }
+  
+  @keyframes pr-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .no-data {
+    text-align: center;
+    padding: 2rem;
+    color: var(--pr-text-faint);
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+  
+  /* Pagination */
+  .pagination-container {
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+  
+  .pagination {
+    display: inline-flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .page-btn {
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--pr-border-strong);
+    background: var(--pr-surface);
+    color: var(--pr-text);
+    border-radius: var(--pr-radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.15s ease;
+  }
+  
+  .page-btn:hover:not(.disabled) {
+    background: var(--pr-accent-soft);
+    color: var(--pr-accent);
+    border-color: var(--pr-accent);
+  }
+  
+  .page-btn.active {
+    background: var(--pr-accent);
+    color: white;
+    border-color: var(--pr-accent);
+  }
+  
+  .page-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Print Styles */
+  @media print {
+    .filter-card,
+    .tabs-nav,
+    :global(.btn),
+    .pagination-container,
+    .chart-expand-btn {
+      display: none !important;
+    }
+  
+    :global(.container) {
+      padding: 0;
+      background: white;
+    }
+  
+    .tab-pane {
+      display: block !important;
+      page-break-after: always;
+    }
+  
+    .content-card {
+      box-shadow: none;
+      border: 1px solid #ddd;
+      page-break-inside: avoid;
+    }
+  
+    .data-table {
+      font-size: 0.8rem;
+    }
+  
+    .data-table th,
+    .data-table td {
+      padding: 0.4rem;
+    }
+  }
+  
+  /* Scrollbar Styling */
+  .table-container::-webkit-scrollbar {
+    height: 7px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background: var(--pr-bg);
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: var(--pr-border-strong);
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: var(--pr-text-faint);
+  }
+  
+  /* Focus States for Accessibility */
+  :global(.btn):focus-visible,
+  .filter-select:focus-visible,
+  .filter-input:focus-visible,
+  .tab-link:focus-visible,
+  .page-btn:focus-visible {
+    outline: 2px solid var(--pr-accent);
+    outline-offset: 2px;
+  }
+  
+  .error-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff3f3;
+    border: 1px solid #f5c2c2;
+    color: #a33;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+  
+  /* Skeletons */
+  .skeleton-line {
+    background: linear-gradient(90deg, #eee 25%, #f5f5f5 37%, #eee 63%);
+    background-size: 400% 100%;
+    animation: pr-skeleton-shimmer 1.4s ease infinite;
+    border-radius: 4px;
+  }
+  
+  .skeleton-label { height: 12px; width: 60%; margin-bottom: 10px; }
+  .skeleton-value { height: 24px; width: 80%; }
+  .skeleton-chart { width: 100%; height: 100%; min-height: 300px; }
+  
+  @keyframes pr-skeleton-shimmer {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+  }
+  
+  /* ─── RESPONSIVE ─────────────────────────────────────── */
+  
+  @media (max-width: 992px) {
+    .purchase-comparison-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .filter-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .grid-two-col,
+    .grid-three-col {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    :global(.container) {
+      padding: 1rem;
+    }
+  
+    .purchase-comparison-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .filter-row {
+      grid-template-columns: 1fr;
+    }
+  
+    .tab-link {
+      flex: none;
+      padding: 0.8rem 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .purchase-comparison-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 991px) {
+    /* tabs wrap into rows instead of scrolling sideways,
+       and the strip reads as its own distinct region      */
+    .tabs-nav {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+      overflow-x: visible;
+      padding: 6px;
+      background: #f1f3f6;
+      border-bottom: 2px solid var(--sr-border);
+    }
+    .tab-link {
+      flex: none;
+      padding: 0.6rem 0.5rem;
+      font-size: 0.82rem;
+      white-space: normal;
+      line-height: 1.25;
+      border-radius: 6px;
+      border-bottom: 3px solid transparent;
+      background: #fff;
+    }
+    .tab-link.active { background: var(--sr-accent-soft); }
+    .tabs-content { padding: 0.9rem; }
+  }
+  
+  @media (max-width: 480px) {
+    .tabs-nav { grid-template-columns: 1fr 1fr; }
+    .tab-link i { display: none; }   /* text alone is clearer when tight */
+  }
+  

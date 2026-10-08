@@ -1,0 +1,169 @@
+/* manual notes - index.css */
+
+/* ─── SORT BAR ───────────────────────────────────────── */
+.sort-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 2px 10px;
+    border-bottom: 1px solid #e6e8ec;
+}
+
+.sort-bar-label {
+    font-size: 12px;
+    color: #7b828c;
+    margin-right: 2px;
+}
+
+.sort-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #4a5460;
+    background: #fff;
+    border: 1px solid #dcdfe4;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+
+.sort-btn-active {
+    background: #1b2a41;
+    border-color: #1b2a41;
+    color: #fff;
+}
+
+/* the global .sort-icons arrows sit inside these buttons —
+   lighten them on the dark active state so they stay visible */
+.sort-btn-active :global(.sort-icons) span { color: #8b97a8; }
+.sort-btn-active :global(.sort-icons) span.active { color: #fff; }
+
+.note-count {
+    margin-left: auto;
+    font-size: 12px;
+    color: #9aa1ab;
+}
+
+/* ─── NOTE ROWS ──────────────────────────────────────── */
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.note-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.note-row:hover {
+    border-color: #c3c8d0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+}
+
+.note-main {
+    flex: 1;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.note-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1b2a41;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-main:hover .note-title { text-decoration: underline; }
+
+.note-date {
+    font-size: 11px;
+    color: #7b828c;
+}
+
+/* ─── ROW ACTIONS ────────────────────────────────────── */
+.note-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: none;
+}
+
+.note-icon-btn {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #dcdfe4;
+    border-radius: 3px;
+    color: #5c6670;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.note-icon-btn:hover {
+    background: #5c6670;
+    border-color: #5c6670;
+    color: #fff;
+}
+
+.note-icon-whatsapp:hover {
+    background: #25D366;
+    border-color: #25D366;
+}
+
+/* ─── EMPTY STATE ────────────────────────────────────── */
+.no-notes {
+    text-align: center;
+    padding: 60px 20px;
+    color: #7f8c8d;
+}
+
+.add-search-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 640px) {
+    .note-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .note-actions { justify-content: flex-end; }
+
+    .sort-bar { flex-wrap: wrap; }
+}
+
+@media (max-width: 991px) {
+    .add-search-container {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+    }
+    .add-search-container > :global(.search-container) { flex: 1 1 auto; min-width: 0; }
+    .add-search-container > :global(.add-button) { flex: 0 0 auto; }
+  }
+  

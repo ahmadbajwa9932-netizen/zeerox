@@ -1,0 +1,532 @@
+/* dashboard.module.css
+   Scoped styles for the Revenue Dashboard.
+   Colors/radii/shadows intentionally match the existing globals.css
+   design language (#1b2a41 navy, #3d405b slate, card shadow 0px 2px 5px #00000033)
+   so this page doesn't feel like a bolt-on. */
+
+   .page {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5%;
+    gap: 16px;
+  }
+  
+  /* ─── HEADER ─────────────────────────────────────────── */
+  .headerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1b2a41;
+    letter-spacing: -0.01em;
+  }
+  
+  .titleIcon {
+    color: #3d405b;
+    font-size: 20px;
+  }
+  
+  /* ─── FILTER BAR ─────────────────────────────────────── */
+  .filterBar {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px #00000033;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+    align-items: end;
+  }
+  
+  .filterCol {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+  
+  .filterLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color: #35302d;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  
+  .filterSelect,
+  .filterInput {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #1b1a1a;
+    background: white;
+    transition: border-color 0.15s ease;
+  }
+  
+  .filterSelect:focus,
+  .filterInput:focus {
+    outline: none;
+    border-color: #1b2a41;
+  }
+  
+  .rangeWarning {
+    grid-column: 1 / -1;
+    font-size: 12px;
+    color: #e74c3c;
+    margin-top: -6px;
+  }
+  
+  /* ─── TABS ───────────────────────────────────────────── */
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    border-bottom: 2px solid #e5e5e5;
+  }
+  
+  .tabBtn {
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #667;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 6px 6px 0 0;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .tabBtn:hover {
+    color: #1b2a41;
+    background: rgba(27, 42, 65, 0.05);
+  }
+  
+  .tabBtnActive {
+    color: #1b2a41;
+    border-bottom-color: #1b2a41;
+    background: rgba(27, 42, 65, 0.06);
+    font-weight: 700;
+  }
+  
+  @media (max-width: 768px) {
+    .tabs { grid-template-columns: repeat(2, 1fr); }
+    .tabBtn { padding: 10px; font-size: 12.5px; }
+  }
+  
+  /* ─── TAB PANEL ──────────────────────────────────────── */
+  .tabPanel {
+    animation: fadeIn 0.25s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ─── KPI GRID ───────────────────────────────────────── */
+  .kpiGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 14px;
+  }
+  
+  .kpiCard {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px #00000033;
+    padding: 18px;
+    text-align: left;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    min-width: 0;
+  }
+  
+  .kpiCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 10px #00000026;
+  }
+  
+  .kpiHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .kpiLabel {
+    font-size: 13px;
+    color: #8a8a8a;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  
+  .eyeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #b6b6b6;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    flex-shrink: 0;
+    transition: color 0.15s ease;
+  }
+  
+  .eyeBtn:hover { color: #1b2a41; }
+  
+  .kpiValue {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1b1a1a;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .kpiValueNegative { color: #e74c3c; }
+  
+  .kpiNote {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #8a8a8a;
+  }
+  
+  .kpiNoteReturns {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #d63384;
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  
+  /* ─── CHARTS ─────────────────────────────────────────── */
+  .chartGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  @media (max-width: 900px) {
+    .chartGrid { grid-template-columns: 1fr; }
+  }
+  
+  .chartCard {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px #00000033;
+    padding: 16px;
+    min-width: 0;
+  }
+  
+  .chartCardHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .chartTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1b2a41;
+  }
+  
+  .expandBtn {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 9px;
+    cursor: pointer;
+    color: #667;
+    font-size: 13px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  
+  .expandBtn:hover {
+    border-color: #1b2a41;
+    color: #1b2a41;
+  }
+  
+  .chartContainer {
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
+  
+  /* ─── MODAL ──────────────────────────────────────────── */
+  .modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .modalBox {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1100px;
+    max-height: 92vh;
+    padding: 22px;
+    overflow: auto;
+  }
+  
+  .modalClose {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 7px 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .modalTitle {
+    margin-bottom: 16px;
+    color: #1b2a41;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .modalChartWrap {
+    width: 100%;
+    height: 65vh;
+    overflow: auto;
+  }
+  
+  /* ─── TABLES ─────────────────────────────────────────── */
+  .tableGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  @media (max-width: 900px) {
+    .tableGrid { grid-template-columns: 1fr; }
+  }
+  
+  .tableCard {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px #00000033;
+    padding: 16px;
+    min-width: 0;
+  }
+  
+  .tableCardHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .limitSelect {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12.5px;
+  }
+  
+  .dashTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  
+  .dashTable th {
+    background-color: #1b2a41;
+    font-size: 12px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .dashTable th:first-child { border-top-left-radius: 4px; }
+  .dashTable th:last-child  { border-top-right-radius: 4px; }
+  
+  .dashTable td {
+    padding: 9px 10px;
+    font-size: 12.5px;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .dashTable tr:nth-child(even) { background-color: #f7f8fa; }
+  .dashTable tr:hover           { background-color: #eef1f5; }
+  
+  .emptyRow {
+    text-align: center;
+    color: #999;
+    padding: 24px !important;
+    font-size: 13px;
+  }
+  
+  .dotCell {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  /* ─── SKELETON LOADING ───────────────────────────────── */
+  .skeletonGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 14px;
+  }
+  
+  .skeletonCard {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px #00000033;
+    padding: 18px;
+    height: 92px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .skeletonLine {
+    background: linear-gradient(90deg, #eee 25%, #f5f5f5 37%, #eee 63%);
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+    border-radius: 4px;
+  }
+  
+  @keyframes shimmer {
+    0%   { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+  }
+  
+  .skelLabel { width: 55%; height: 11px; margin-bottom: 14px; }
+  .skelValue { width: 75%; height: 20px; }
+  
+  .skeletonChart {
+    height: 300px;
+    border-radius: 6px;
+  }
+  
+  /* ─── ERROR STATE ────────────────────────────────────── */
+  .errorBox {
+    background: #fdecea;
+    border: 1px solid #f5c6c3;
+    color: #a94442;
+    padding: 16px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  
+  .retryBtn {
+    background: #1b2a41;
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12.5px;
+    flex-shrink: 0;
+  }
+  
+  /* ─── FOCUS STATES (keyboard accessibility) ──────────── */
+  .tabBtn:focus-visible,
+  .eyeBtn:focus-visible,
+  .expandBtn:focus-visible,
+  .retryBtn:focus-visible,
+  .filterSelect:focus-visible,
+  .filterInput:focus-visible,
+  .limitSelect:focus-visible,
+  .modalClose:focus-visible {
+    outline: 2px solid #1b2a41;
+    outline-offset: 2px;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .tabPanel,
+    .kpiCard,
+    .skeletonLine {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+  
+  /* ─── ANALYSIS BAR ───────────────────────────────────── */
+  .analysisBarTrack {
+    width: 100%;
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  
+  .analysisBarFill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  @media (max-width: 991px) {
+    /* charts were 300px tall and forced extra scrolling */
+    .chartContainer { height: 210px; }
+  }
+  
+  @media (max-width: 768px) {
+    /* your existing block drops these to 12.5px — too small */
+    .tabs {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      padding: 6px;
+      background: #f1f3f6;
+      border-radius: 8px 8px 0 0;
+    }
+    .tabBtn {
+      padding: 10px 8px;
+      font-size: 14px;
+      background: #fff;
+      border-radius: 6px;
+    }
+    .tabBtn i { font-size: 13px; }
+  }
+  

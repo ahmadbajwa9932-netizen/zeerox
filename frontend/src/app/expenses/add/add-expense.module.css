@@ -1,0 +1,148 @@
+/* ─── Entry Mode ─────────────────────────────────────── */
+.entry-mode {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px 10px;
+}
+
+.entry-mode label {
+    font-size: 14px;
+    color: #1b1c1d;
+    white-space: nowrap;
+}
+
+.mode-tabs {
+    display: flex;
+    background: #f1f3f5;
+    border-radius: 6px;
+    padding: 3px;
+    gap: 3px;
+}
+
+.mode-tab {
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6c757d;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+}
+
+.mode-tab:hover { color: #1a1a1a; }
+
+.mode-tab-active {
+    background: #ffffff;
+    color: #1a1a1a;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* ─── Form Wrapper ───────────────────────────────────── */
+.expense-form-wrapper {
+    padding: 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.category-amount {
+    display: flex;
+    gap: 1.5%;
+}
+
+/* ─── Input Groups ───────────────────────────────────── */
+.input-group,
+.input-group-select {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.input-group-text {
+    background-color: #e9ecef;
+    padding: 10px 15px;
+    border-right: 1px solid #ced4da;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #1b1c1d;
+}
+
+.input-group input,
+.input-group-select select {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    color: #495057;
+    min-width: 0;
+    outline: none;
+}
+
+/* ─── btn-success (not in globals) ──────────────────── */
+.btn-success {
+    background-color: #28a745;
+    border: 1px solid #218838;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.btn-success:hover { background-color: #218838; }
+
+.btn-primary{
+    width: fit-content;
+    background: #1b2a41; color: white;
+}
+
+/* ─── Multiple table inputs ──────────────────────────── */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.table-wrapper table td select,
+.table-wrapper table td input {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 12px;
+    color: #495057;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.table-wrapper table td select:focus,
+.table-wrapper table td input:focus {
+    border-color: #1a1a1a;
+}
+
+/* ─── Multi actions row ──────────────────────────────── */
+.multi-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 640px) {
+    .category-amount { flex-direction: column; gap: 14px; }
+    .entry-mode { flex-wrap: wrap; }
+}
+
+@media (max-width: 991px) {
+    .entry-mode { flex-wrap: wrap; gap: 10px; padding: 12px 14px 8px; }
+    .mode-tabs  { width: 100%; }
+    .mode-tab   { flex: 1; padding: 7px 10px; }
+  }
+  

@@ -1,0 +1,85 @@
+#customerSearchType, #customerTypeFilter {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    outline: none;
+    font-size: 14px;
+  }
+  #customerSearchType:focus, #customerTypeFilter:focus {
+    border-color: #007bff;
+  }
+  #customerSearchbar-dropdown {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  .sub-container table { width: 100%; }
+
+  .date-range .date-input {
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .date-range .date-input:focus {
+    border-color: #1b2a41;
+  }
+
+  .date-filter-btn {
+    height: 35px;
+    padding: 0 16px;
+    background: #1b2a41;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .date-filter-btn:hover {
+    background: #243b55;
+  }
+
+  .date-range {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+/* @media (max-width: 768px) {
+  #customerSearchbar-dropdown {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+  #customerSearchType,
+  #customerTypeFilter { width: 100% !important; }
+
+  .date-range { width: 100%; }
+  .date-range .date-input { flex: 1; min-width: 130px; }
+  .date-filter-btn { width: 100%; }
+} */
+
+@media (max-width: 991px) {
+  /* Search by: + dropdown + input — one row, normal text size */
+  #customerSearchType { width: 118px !important; }
+
+  /* "All Customers" dropdown — same as daily sale, not full width */
+  #customerTypeFilter {
+    width: 150px !important;
+    max-width: 100%;
+  }
+}
+

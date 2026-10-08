@@ -1,0 +1,455 @@
+.page {
+    width: auto;
+}
+
+.header {
+    margin-bottom: 28px;
+}
+
+.headerTop {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.headerIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #1b2a41;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.headerIcon svg {
+    width: 20px;
+    height: 20px;
+    stroke: #ffffff;
+}
+
+.headerTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1b2a41;
+    margin: 0;
+}
+
+.headerSubtitle {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 4px 0 0 52px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e8eaed;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.cardDanger {
+    border-color: #fbdada;
+}
+
+.cardIconRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.cardIcon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef2f9;
+    flex-shrink: 0;
+}
+
+.cardIcon svg {
+    width: 17px;
+    height: 17px;
+    stroke: #1b2a41;
+}
+
+.cardIconDanger {
+    background: #fdeaea;
+}
+
+.cardIconDanger svg {
+    stroke: #e74c3c;
+}
+
+.cardTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1b2a41;
+    margin: 0;
+}
+
+.cardDesc {
+    font-size: 12.5px;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0 0 14px 0;
+}
+
+.infoBox {
+    background: #f8f9fb;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    font-size: 11.5px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.infoBoxDanger {
+    background: #fef6f6;
+}
+
+.infoLine {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.infoLine:last-child {
+    margin-bottom: 0;
+}
+
+.infoLabel {
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+}
+
+.infoValue {
+    color: #6b7280;
+}
+
+.tagInclude {
+    color: #1b7f4d;
+}
+
+.tagExclude {
+    color: #b5480e;
+}
+
+.exportButtonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardButton {
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.cardButton svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    stroke: currentColor;
+}
+
+.cardButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.buttonPrimary {
+    background: #1b2a41;
+    color: #ffffff;
+}
+
+.buttonPrimary:hover:not(:disabled) {
+    background: #263a56;
+}
+
+.buttonDanger {
+    background: #e74c3c;
+    color: #ffffff;
+}
+
+.buttonDanger:hover:not(:disabled) {
+    background: #d13d2e;
+}
+
+.buttonNeutral {
+    background: #f1f2f4;
+    color: #374151;
+}
+
+.buttonNeutral:hover:not(:disabled) {
+    background: #e5e7eb;
+}
+
+.spin {
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* ── Overlay (export/import progress) ── */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 20, 30, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.overlayBox {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 32px 40px;
+    text-align: center;
+    min-width: 260px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.overlaySpinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #eef0f3;
+    border-top-color: #1b2a41;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    animation: spin 0.8s linear infinite;
+}
+
+.overlayText {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1b2a41;
+    margin: 0 0 4px 0;
+}
+
+.overlayHint {
+    font-size: 11.5px;
+    color: #9aa1ab;
+    margin: 0;
+}
+
+/* ── Reset modal ── */
+.modalBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 20, 30, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 16px;
+}
+
+.modalBox {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modalIconWrap {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #fdeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.modalIconWrap svg {
+    width: 22px;
+    height: 22px;
+    stroke: #e74c3c;
+}
+
+.modalTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1b2a41;
+    margin: 0 0 6px 0;
+}
+
+.modalText {
+    font-size: 12.5px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 18px 0;
+}
+
+.modalWarnList {
+    background: #fef6f6;
+    border: 1px solid #fbdada;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+}
+
+.modalWarnItem {
+    font-size: 12px;
+    color: #7a2c22;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+
+.modalWarnItem:last-child {
+    margin-bottom: 0;
+}
+
+.modalWarnItem svg {
+    width: 13px;
+    height: 13px;
+    stroke: #e74c3c;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.modalLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.passwordWrap {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.passwordInput {
+    width: 100%;
+    padding: 10px 40px 10px 12px;
+    border: 1px solid #d8dce2;
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.passwordInput:focus {
+    border-color: #1b2a41;
+}
+
+.passwordToggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9aa1ab;
+    display: flex;
+    padding: 2px;
+}
+
+.passwordToggle svg {
+    width: 16px;
+    height: 16px;
+}
+
+.errorText {
+    font-size: 11.5px;
+    color: #e74c3c;
+    margin: 4px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.modalActions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+.modalActions button {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.modalActions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.processingCenter {
+    text-align: center;
+    padding: 12px 0;
+}
+
+.processingCenter .overlaySpinner {
+    margin: 0 auto 14px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+   @media (max-width: 991px) {
+    .page   { padding: 12px; }
+    .headerTop { flex-wrap: wrap; gap: 12px; }
+    .grid   { grid-template-columns: 1fr; gap: 14px; }
+    .card   { padding: 16px; }
+    .exportButtonGroup { flex-direction: column; gap: 8px; }
+    .cardButton { width: 100%; }
+    .infoLine   { flex-wrap: wrap; gap: 4px; }
+  }
+  
+  @media (max-width: 480px) {
+    .headerTitle    { font-size: 18px; }
+    .headerSubtitle { font-size: 12px; }
+    .cardIconRow    { flex-wrap: wrap; gap: 8px; }
+  }
+  

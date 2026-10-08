@@ -1,0 +1,36 @@
+#salesSearchType {
+    padding: 0px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    outline: none;
+    font-size: 14px;
+}
+
+.dateinput , .paymentinput{
+    padding: 8px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    outline: none;
+    font-size: 14px;
+}
+
+#salesSearchType:focus {
+    border-color: #007bff;
+}
+#searchbar-dropdown {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.sub-container table {
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    #salesSearchType { width: 118px !important; padding: 8px; }
+    .paymentinput { width: 150px !important; max-width: 100%; }
+    .dateinput    { width: 160px !important; max-width: 100%; }
+  }
+  

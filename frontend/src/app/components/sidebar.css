@@ -1,0 +1,417 @@
+.pos-sidebar-wrapper .sidebar {
+    width: 230px;
+    height: 100vh;
+    background-color: #1b2a41;
+    padding-top: 0;
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #314b78 transparent;
+    transition: width 0.3s ease-in-out;
+    display: block;
+    z-index: 1001;
+}
+
+.pos-sidebar-wrapper .sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pos-sidebar-wrapper .sidebar::-webkit-scrollbar-thumb {
+    background-color: #314b78;
+    border-radius: 10px;
+}
+
+.pos-sidebar-wrapper .sidebar h2 {
+    color: #00aaff;
+    text-align: center;
+    font-size: 18px;
+    margin: 14px 0 14px 0;
+}
+
+.pos-sidebar-wrapper .menu-item {
+    list-style: none;
+    padding: 9px 14px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease-in-out;
+    font-size:13px;
+}
+
+.pos-sidebar-wrapper .menu-item i {
+    color: white;
+}
+
+.pos-sidebar-wrapper .menu-item:hover {
+    background-color: #243b55;
+}
+
+.pos-sidebar-wrapper .submenu {
+    max-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background-color: #16223a;
+}
+
+.pos-sidebar-wrapper .submenu li {
+    margin-left: 10px;
+}
+
+.pos-sidebar-wrapper .submenu li:first-child {
+    margin-top: 5px;
+}
+
+.pos-sidebar-wrapper .submenu li:last-child {
+    margin-bottom: 5px;
+}
+
+.pos-sidebar-wrapper .submenu a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.pos-sidebar-wrapper .submenu a:hover {
+    background-color: #314b78;
+}
+
+.pos-sidebar-wrapper .icon {
+    font-size: 12px;
+    background-color: #1e51aa;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.pos-sidebar-wrapper .rotate {
+    transform: rotate(180deg);
+}
+
+.pos-sidebar-wrapper .sidebar.collapsed {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+}
+
+.pos-sidebar-wrapper .sidebar.collapsed h2 {
+    display: none;
+}
+
+.pos-sidebar-wrapper .sidebar.collapsed .menu-item {
+    justify-content: center;
+    padding: 12px;
+}
+
+.pos-sidebar-wrapper .sidebar.collapsed .menu-item span {
+    display: none;
+}
+
+.pos-sidebar-wrapper .sidebar.collapsed .submenu {
+    display: none;
+}
+
+.pos-sidebar-wrapper .without-menu-item {
+    text-decoration: none;
+    color: white;
+}
+
+.pos-sidebar-wrapper .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.pos-sidebar-wrapper .sidebar-logo-emblem {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+}
+.pos-sidebar-wrapper .sidebar-logo-wordmark-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.pos-sidebar-wrapper .sidebar-logo-text {
+    color: #f2f5fa;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.pos-sidebar-wrapper .sidebar-logo-accent {
+    color: #3ba7ff;
+    font-weight: 700;
+}
+.pos-sidebar-wrapper .sidebar-logo-sub {
+    color: #6f84a8;
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+.pos-sidebar-wrapper .sidebar.mini .sidebar-logo { justify-content: center; padding: 16px 0 14px; }
+.pos-sidebar-wrapper .sidebar.mini .sidebar-logo-wordmark-group { display: none; }
+
+.pos-sidebar-wrapper .menu-group { position: relative; }
+
+.pos-sidebar-wrapper .sidebar.mini { width: 70px; }
+.pos-sidebar-wrapper .sidebar.mini {
+    overflow: visible;
+}
+.pos-sidebar-wrapper .sidebar.mini .menu-item { justify-content: center; padding: 12px; }
+.pos-sidebar-wrapper .sidebar.mini .menu-item .menu-text { display: none; }
+.pos-sidebar-wrapper .sidebar.mini .menu-item .icon { display: none; }
+.pos-sidebar-wrapper .sidebar.mini .menu-item i { font-size: 16px; }
+
+.pos-sidebar-wrapper .sidebar.mini .submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 210px;
+    max-height: 0 !important;
+    padding: 0 !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background-color: #16223a;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 6px 0 18px rgba(0,0,0,0.35);
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    z-index: 1002;
+}
+.pos-sidebar-wrapper .sidebar.mini .menu-group:hover .submenu {
+    max-height: 500px !important;
+    padding: 10px 0 !important;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.pos-sidebar-wrapper .sidebar-footer {
+    color: white;
+    padding: 14px 12px;
+    position: sticky;
+    bottom: -2px;
+    background-color: #1b2a41;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+    z-index: 10;
+}
+.pos-sidebar-wrapper .sidebar-user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    padding: 0 4px 10px;
+    color: #cfe0ff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pos-sidebar-wrapper .sidebar-user-info i { margin-left: 10px; font-size: 18px; color: #00aaff; min-width: 18px; }
+.pos-sidebar-wrapper .sidebar-footer-actions { display: flex; align-items: center; gap: 8px; }
+.pos-sidebar-wrapper .sidebar-mini-toggle {
+    background-color: #243b55;
+    border: none;
+    color: white;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+.pos-sidebar-wrapper .sidebar-mini-toggle:hover { background-color: #314b78; }
+.pos-sidebar-wrapper .sidebar-signout-btn {
+    flex: 1;
+    background-color: #1b2a41;
+    border: 1px solid #20385c;
+    color: white;
+    padding: 0 12px;
+    height: 34px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: background 0.2s ease;
+}
+.pos-sidebar-wrapper .sidebar-signout-btn:hover { background-color: #c0392b; border: none;}
+.pos-sidebar-wrapper .sidebar.mini .sidebar-user-info span,
+.pos-sidebar-wrapper .sidebar.mini .sidebar-signout-btn span { display: none; }
+.pos-sidebar-wrapper .sidebar.mini .sidebar-footer-actions { flex-direction: column; }
+.pos-sidebar-wrapper .sidebar.mini .sidebar-signout-btn { flex: none; width: 34px; }
+
+.pos-sidebar-wrapper .menu-item.active {
+    background-color: #243b55;
+}
+
+.pos-sidebar-wrapper .menu-item.parent-active {
+    background-color: #243b55;
+}
+
+.pos-sidebar-wrapper .submenu a.active {
+    background-color: transparent;
+    display: inline-block;
+    border-left: none;
+    background-color: #314b78;
+    padding: 12px 15px;
+}
+
+.pos-sidebar-wrapper .sidebar.collapsed.mini {
+    overflow: hidden !important;
+}
+
+.login-as{
+    font-style: italic;
+    color:white;
+}
+
+.pos-sidebar-wrapper .sidebar-support {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 4px 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.pos-sidebar-wrapper .sidebar-support-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #6f84a8;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+.pos-sidebar-wrapper .sidebar-support-label i {
+    color: #3ba7ff;
+    font-size: 14px;
+    min-width: 14px;
+}
+.pos-sidebar-wrapper .sidebar-support-numbers {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+.pos-sidebar-wrapper .sidebar-support-numbers a {
+    color: #cfe0ff;
+    font-size: 11.5px;
+    text-decoration: none;
+}
+.pos-sidebar-wrapper .sidebar-support-numbers a:hover { color: #3ba7ff; }
+.pos-sidebar-wrapper .sidebar-support-sep { color: #4a5f82; font-size: 11px; }
+.pos-sidebar-wrapper .sidebar.mini .sidebar-support { align-items: center; }
+.pos-sidebar-wrapper .sidebar.mini .sidebar-support-label { justify-content: center; }
+.pos-sidebar-wrapper .sidebar.mini .sidebar-support-label span,
+.pos-sidebar-wrapper .sidebar.mini .sidebar-support-numbers { display: none; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+   @media (max-width: 991px) {
+    /* Drawer floats over the page. The huge shadow spread dims
+       the content behind it without needing a backdrop element. */
+    .pos-sidebar-wrapper .sidebar,
+    .pos-sidebar-wrapper .sidebar.mini {
+      width: 260px;
+      max-width: 82vw;
+      box-shadow: 4px 0 20px rgba(0,0,0,0.35),
+                  0 0 0 100vw rgba(0,0,0,0.45);
+    }
+  
+    .pos-sidebar-wrapper .sidebar.collapsed,
+    .pos-sidebar-wrapper .sidebar.collapsed.mini {
+      width: 0 !important;
+      max-width: 0;
+      box-shadow: none;
+    }
+  
+    /* The icon-rail is a desktop affordance — restore full labels */
+    .pos-sidebar-wrapper .sidebar.mini { overflow-y: auto; overflow-x: hidden; }
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-logo {
+      justify-content: flex-start; padding: 20px 16px;
+    }
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-logo-wordmark-group { display: flex; }
+    .pos-sidebar-wrapper .sidebar.mini .menu-item {
+      justify-content: space-between; padding: 11px 14px;
+    }
+    .pos-sidebar-wrapper .sidebar.mini .menu-item .menu-text { display: inline; }
+    .pos-sidebar-wrapper .sidebar.mini .menu-item .icon      { display: flex; }
+    .pos-sidebar-wrapper .sidebar.mini .menu-item i          { font-size: 13px; }
+    .pos-sidebar-wrapper .sidebar.mini .submenu {
+      position: static;
+      min-width: 0;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      box-shadow: none;
+      border-radius: 0;
+    }
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-user-info span,
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-signout-btn span { display: inline; }
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-footer-actions { flex-direction: row; }
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-support { align-items: stretch; }
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-support-label { justify-content: flex-start; }
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-support-label span { display: inline; }
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-support-numbers { display: flex; }
+
+    .pos-sidebar-wrapper .sidebar.mini .sidebar-signout-btn { flex: 1; width: auto; }
+  
+    /* rail toggle is meaningless on touch */
+    .pos-sidebar-wrapper .sidebar-mini-toggle { display: none; }
+  
+    /* finger-sized tap targets */
+    .pos-sidebar-wrapper .menu-item  { padding: 11px 14px; font-size: 14px; }
+      /* submenu links become full-width rows with breathing room,
+     instead of bare text with a text-width highlight          */
+  .pos-sidebar-wrapper .submenu { gap: 2px; }
+  .pos-sidebar-wrapper .submenu li { margin-left: 0; }
+  .pos-sidebar-wrapper .submenu li:first-child { margin-top: 6px; }
+  .pos-sidebar-wrapper .submenu li:last-child  { margin-bottom: 6px; }
+
+  .pos-sidebar-wrapper .submenu a,
+  .pos-sidebar-wrapper .submenu a.active {
+    display: block;
+    padding: 11px 14px;
+    margin: 0 10px 0 24px;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+  .pos-sidebar-wrapper .submenu a:hover { background-color: #314b78; }
+
+  }
+  
+  @media (max-width: 480px) {
+    .pos-sidebar-wrapper .sidebar,
+    .pos-sidebar-wrapper .sidebar.mini { width: 250px; max-width: 80vw; }
+  }
+  

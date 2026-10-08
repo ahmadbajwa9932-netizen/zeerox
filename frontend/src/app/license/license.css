@@ -1,0 +1,152 @@
+/* ── Expired page ─────────────────────────────────── */
+.expired-container {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    padding: 40px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+    max-width: 480px;
+    margin: 60px auto;
+}
+
+.expired-icon   { font-size: 44px; margin-bottom: 8px; }
+.expired-title  { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.expired-message { font-size: 12px; margin-bottom: 15px; opacity: 0.95; }
+
+.license-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px 0;
+    backdrop-filter: blur(10px);
+}
+.license-info p        { margin: 5px 0; font-size: 12px; }
+.license-info strong   { font-weight: 600; }
+
+.renew-btn {
+    background: white;
+    color: #dc2626;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+}
+.renew-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.contact-info        { margin-top: 15px; font-size: 12px; opacity: 0.9; }
+.contact-info p      { margin: 4px 0; }
+
+/* ── Error cascade (Windows dialog) ──────────────────  */
+.windows-error-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+}
+
+.windows-error-dialog {
+    position: absolute;
+    width: 400px;
+    background: #f0f0f0;
+    border: 1px solid #0054a6;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.windows-error-titlebar {
+    background: linear-gradient(to bottom, #0054a6, #0a3d8f);
+    color: white;
+    padding: 5px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.windows-error-content {
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    background: white;
+}
+
+.error-icon {
+    width: 48px;
+    height: 48px;
+    background: #e81123;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.error-icon::before {
+    content: '✕';
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.error-message {
+    flex: 1;
+    font-size: 13px;
+    color: #000;
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+.windows-error-footer {
+    background: #f0f0f0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #d4d4d4;
+}
+
+.windows-ok-button {
+    background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+    border: 1px solid #707070;
+    padding: 5px 25px;
+    font-size: 12px;
+    cursor: pointer;
+    min-width: 75px;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+.windows-ok-button:hover {
+    background: linear-gradient(to bottom, #e8f4fd, #c0e0f5);
+    border-color: #3c7fb1;
+}
+.windows-ok-button:active {
+    background: linear-gradient(to bottom, #c0e0f5, #e8f4fd);
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Input error state ────────────────────────────── */
+.input-error { border-color: #dc2626 !important; }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+   @media (max-width: 575px) {
+    .expired-container { padding: 24px 18px; margin: 24px 12px; }
+    .expired-icon  { font-size: 36px; }
+    .expired-title { font-size: 18px; }
+    .license-info  { padding: 14px; }
+    .renew-btn     { width: 100%; padding: 13px 20px; }
+  
+    .windows-error-dialog { width: 92%; }
+    .windows-error-content { flex-wrap: wrap; }
+  }
+  

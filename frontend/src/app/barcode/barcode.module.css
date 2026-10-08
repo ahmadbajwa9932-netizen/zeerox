@@ -1,0 +1,450 @@
+/* ─── BARCODE SEARCH SECTION ─────────────────────────── */
+.barcode-search-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.barcode-search-section h3,
+.barcode-toggle-section h3,
+.barcode-product-table-section h3,
+.barcode-preview-section h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+}
+
+.barcode-search-input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.barcode-search-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.barcode-search-results {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: calc(100% - 10px);
+    z-index: 100;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.search-result-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    transition: background 0.2s;
+    background: white;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover,
+.search-result-item.keyboard-active {
+    background: #e3f2fd;
+}
+
+/* ─── TOGGLE SECTION ─────────────────────────────────── */
+.barcode-toggle-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 15px;
+}
+
+.toggle-sections {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toggle-item-row {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 15px;
+    align-items: start;
+}
+
+.toggle-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.toggle-item label {
+    font-weight: 500;
+    color: #555;
+    font-size: 16px;
+    flex: 1;
+    cursor: default;
+}
+
+/* ─── TOGGLE SWITCH ──────────────────────────────────── */
+.toggle-switch {
+    position: relative;
+    width: 40px;
+    height: 15px;
+    background: #ccc;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+    flex-shrink: 0;
+}
+
+.toggle-switch.active {
+    background: #4caf50;
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    top: 2.5px;
+    left: 2px;
+    transition: left 0.3s;
+}
+
+.toggle-switch.active::after {
+    left: 28px;
+}
+
+/* ─── TOGGLE INPUTS ──────────────────────────────────── */
+.toggle-input {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: none;
+    width: 100%;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.toggle-input.show {
+    display: block;
+}
+
+/* ─── PRODUCT TABLE SECTION ──────────────────────────── */
+.barcode-product-table-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.barcode-product-table-section.show {
+    display: block;
+}
+
+.barcode-product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.barcode-product-table th {
+    background: #1b2a41;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.barcode-product-table th:first-child { border-top-left-radius: 3px; }
+.barcode-product-table th:last-child  { border-top-right-radius: 3px; }
+
+.barcode-product-table td {
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.barcode-product-table input,
+.barcode-product-table select {
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.price-warning {
+    color: #dc3545;
+    font-size: 10px;
+    margin-top: 3px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ─── CODE TYPE ROW ──────────────────────────────────── */
+.barcode-code-type-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 14px 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.barcode-code-type-row label {
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+.barcode-code-type-row select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+}
+
+/* ─── PREVIEW SECTION ────────────────────────────────── */
+.barcode-preview-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.barcode-preview-section.show {
+    display: block;
+}
+
+.barcode-preview-controls {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.barcode-preview-controls > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.barcode-preview-controls label {
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.barcode-preview-controls select,
+.barcode-preview-controls input[type="number"] {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* ─── ACTION BUTTONS ─────────────────────────────────── */
+.barcode-action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.barcode-btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, background 0.2s;
+    color: white;
+}
+
+.barcode-btn:disabled {
+    background: #ccc !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.barcode-btn.generate-btn {
+    background: #3d405b;
+}
+
+.barcode-btn.generate-btn:hover:not(:disabled) {
+    background: #2d3045;
+}
+
+.barcode-btn.print-btn {
+    background: #28a745;
+}
+
+.barcode-btn.print-btn:hover:not(:disabled) {
+    background: #218838;
+}
+
+.barcode-btn.update-btn {
+    background: #ff9800;
+}
+
+.barcode-btn.update-btn:hover:not(:disabled) {
+    background: #e68900;
+}
+
+/* ─── PREVIEW GRID ───────────────────────────────────── */
+.barcode-preview-grid {
+    display: grid;
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    min-height: 200px;
+    margin: auto;
+}
+
+.barcode-preview-grid.a4 {
+    width: 210mm;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.barcode-preview-grid.a5 {
+    width: 148mm;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.barcode-preview-grid.thermal {
+    width: 80mm;
+    grid-template-columns: 1fr;
+}
+
+/* ─── BARCODE PREVIEW CARD ───────────────────────────── */
+.barcode-preview {
+    background: white;
+    padding: 15px;
+    border: 2px dashed #ddd;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.barcode-preview .product-name {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 8px;
+    word-break: break-word;
+}
+
+/* Barcode stripe CSS placeholder */
+.barcode-preview .barcode-image {
+    height: 50px;
+    background: repeating-linear-gradient(
+        90deg,
+        #000 0px, #000 2px,
+        transparent 2px, transparent 4px,
+        #000 4px, #000 5px,
+        transparent 5px, transparent 8px
+    );
+    margin: 10px 0;
+}
+
+/* QR checkerboard CSS placeholder */
+.barcode-preview .qr-placeholder {
+    width: 80px;
+    height: 80px;
+    margin: 8px auto;
+    background: repeating-conic-gradient(
+        #000 0% 25%, #fff 0% 50%
+    ) 0 0 / 10px 10px;
+}
+
+.barcode-preview .barcode-number {
+    font-family: monospace;
+    font-size: 11px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.barcode-preview .extra-info {
+    font-size: 10px;
+    color: #666;
+    margin-top: 4px;
+    word-break: break-word;
+}
+
+/* ─── NO PRODUCT MESSAGE ─────────────────────────────── */
+.no-product-message {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-size: 15px;
+    grid-column: 1 / -1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+   @media (max-width: 991px) {
+    .toggle-items    { flex-direction: column; gap: 10px; }
+    .toggle-sections { width: 100%; }
+    .toggle-item-row { grid-template-columns: 1fr; gap: 8px; }
+  
+    .barcode-product-table-section { overflow-x: auto; }
+    .barcode-product-table { min-width: 640px; }
+  
+    .barcode-preview-controls { flex-wrap: wrap; gap: 10px; }
+    .barcode-action-buttons   { flex-wrap: wrap; gap: 8px; }
+    .barcode-btn { flex: 1; min-width: 130px; }
+  
+    /* Paper previews are sized in mm on purpose — keep them
+       true to scale and let the section scroll instead.      */
+    .barcode-preview-section { overflow-x: auto; }
+  }
+  
+  @media (max-width: 480px) {
+    .barcode-code-type-row { flex-direction: column; align-items: stretch; gap: 6px; }
+    .barcode-btn { width: 100%; flex: none; }
+  }
+  

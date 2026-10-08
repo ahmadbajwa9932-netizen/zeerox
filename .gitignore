@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Builds
+.next/
+out/
+build/
+electron/dist/
+electron/tools/*.exe
+
+# Secrets & local config
+.env
+*.env
+!.env.example
+backend/config/license.js
+backend/storage/*
+!backend/storage/.gitkeep
+
+# User uploads
+backend/public/logos/*
+backend/public/products/*
+backend/public/profiles/*
+!backend/public/*/.gitkeep
+
+# Misc
+*.log
+.DS_Store
+Thumbs.db
+backend/routes/license.js

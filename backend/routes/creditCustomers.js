@@ -1,0 +1,82 @@
+import pool from '../db.js';
+
+export default async function creditCustomerRoutes(fastify) {
+  // Equivalent to Laravel getCreditData()
+  fastify.get('/api/customers/credit/data', async (req, reply) => {
+    const {
+      page = 1,
+      sort_column = 'id',
+      sort_direction = 'desc',
+      search,
+      search_type = 'customer',
+    } = req.query;
+
+    const allowed = ['id', 'name', 'shop_name', 'contact', 'city', 'credit_sales_count', 'current_balance', 'last_purchase_date'];
+    const sortColumn = allowed.includes(sort_column) ? sort_column : 'id';
+    const sortDirection = String(sort_direction).toLowerCase() === 'asc' ? 'ASC' : 'DESC';
+    const orderExpr = ['credit_sales_count', 'last_purchase_date'].includes(sortColumn) ? `cs.${sortColumn}` : `c.${sortColumn}`;
+
+    const perPage = 10;
+    const currentPage = Math.max(1, parseInt(page, 10) || 1);
+    const offset = (currentPage - 1) * perPage;
+
+    const whereClauses = [];
+    const whereParams = [];
+
+    if (search) {
+      if (search_type === 'customer') {
+        whereClauses.push('c.name LIKE ?');
+        whereParams.push(`%${search}%`);
+      } else if (search_type === 'shop_name') {
+        whereClauses.push('c.shop_name LIKE ?');
+        whereParams.push(`%${search}%`);
+      } else if (search_type === 'contact') {
+        whereClauses.push('c.contact LIKE ?');
+        whereParams.push(`%${search}%`);
+      }
+    }
+
+    const whereSql = whereClauses.length ? `AND ${whereClauses.join(' AND ')}` : '';
+
+    const creditJoin = `
+      INNER JOIN (
+        SELECT customer_id, COUNT(*) AS credit_sales_count, MAX(sale_date) AS last_purchase_date
+        FROM sales
+        WHERE payment_type = 'credit' AND deleted_at IS NULL
+        GROUP BY customer_id
+      ) cs ON cs.customer_id = c.id
+    `;
+
+    const [countRows] = await pool.query(
+      `SELECT COUNT(*) AS total FROM customers c ${creditJoin} WHERE 1=1 ${whereSql}`,
+      whereParams
+    );
+    const total = countRows[0].total;
+    const lastPage = Math.max(1, Math.ceil(total / perPage));
+
+    const [customers] = await pool.query(
+      `SELECT c.*, cs.credit_sales_count, cs.last_purchase_date
+       FROM customers c
+       ${creditJoin}
+       WHERE 1=1 ${whereSql}
+       ORDER BY ${orderExpr} ${sortDirection}
+       LIMIT ? OFFSET ?`,
+      [...whereParams, perPage, offset]
+    );
+
+    return reply.send({
+      success: true,
+      data: customers,
+      pagination: {
+        current_page: currentPage,
+        last_page: lastPage,
+        per_page: perPage,
+        total,
+        first_item: total ? offset + 1 : null,
+        last_item: total ? Math.min(offset + perPage, total) : null,
+        has_more_pages: currentPage < lastPage,
+        on_first_page: currentPage === 1,
+      },
+    });
+  });
+}

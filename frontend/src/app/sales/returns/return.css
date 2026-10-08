@@ -1,0 +1,102 @@
+/* return.css — mirrors the @push('styles') block + pdf/print modal classes from the Laravel blade view */
+
+#salesSearchType {
+    padding: 0px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    outline: none;
+    font-size: 14px;
+}
+
+#salesSearchType:focus {
+    border-color: #007bff;
+}
+
+#searchbar-dropdown {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* used to hide rows during search (strong override so it can't be accidentally overridden) */
+.search-hidden {
+    display: none !important;
+}
+
+/* marker for rows explicitly opened by the toggle */
+.open-by-toggle {
+}
+
+.sub-container table {
+    width: 100%;
+}
+
+/* ─── PDF / PRINT MODALS ─────────────────────────────── */
+.pdfModal,
+.printModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.pdf-modal-content,
+.print-modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.pdf-btn,
+.print-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #1b2a41;
+    color: #fff !important;
+    border-radius: 4px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.pdf-btn:hover,
+.print-btn:hover {
+    background: #243b55;
+}
+
+.pdf-close-btn,
+.print-close-btn {
+    margin-top: 15px;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    background: #95a5a6;
+    color: #fff;
+    cursor: pointer;
+}
+
+.pdf-close-btn:hover,
+.print-close-btn:hover {
+    background: #7f8c8d;
+}
+
+@media (max-width: 991px) {
+    #panelInvoice,
+    #panelWalkIn {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    #panelInvoice > table,
+    #panelWalkIn > table { min-width: max-content; }
+
+    #salesSearchType { width: 118px !important; height: 35px; padding: 0 8px; }
+}
+
+  

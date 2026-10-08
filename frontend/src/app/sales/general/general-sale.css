@@ -1,0 +1,263 @@
+/* ── General Sale Page ───────────────────────────────── */
+  
+  /* ── Date Range ───────────────────────────────────────── */
+  .date-range-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .date-range {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .date-range label {
+    font-size: 13px;
+    color: #000;
+    font-weight: 500;
+  }
+  
+  .date-range .date-input {
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .date-range .date-input:focus {
+    border-color: #1b2a41;
+  }
+  
+  .date-filter-btn {
+    height: 35px;
+    padding: 0 16px;
+    background: #1b2a41;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .date-filter-btn:hover {
+    background: #243b55;
+  }
+  
+  /* ── Toolbar Row ─────────────────────────────────────── */
+  .toolbar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  /* ── Search Type Dropdown ────────────────────────────── */
+  .search-type-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .search-type-wrapper span {
+    font-size: 15px;
+    color: #000;
+    white-space: nowrap;
+  }
+  
+  .search-type-select {
+    height: 35px;
+    padding: 0 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  
+  .search-type-select:focus {
+    border-color: #1b2a41;
+  }
+  
+  /* ── Search + Type grouped ───────────────────────────── */
+  .search-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* ── Highlighted Row ─────────────────────────────────── */
+  .highlighted-row {
+    background-color: #fff3cd !important;
+    transition: background-color 0.5s ease !important;
+  }
+    
+  /* ── Toggle Button ───────────────────────────────────── */
+  .toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    color: #000;
+    padding: 0 4px 0 0;
+    transition: color 0.2s;
+  }
+  
+  .toggle-btn:hover {
+    color: #1b2a41;
+  }
+  
+  /* ── Restock Delete Modal ────────────────────────────── */
+  .restock-modal-content {
+    max-width: 420px;
+    padding: 24px;
+    border-radius: 10px;
+  }
+
+  .restock-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .restock-modal-header h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .restock-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #fdeceb;
+    color: #c9302c;
+    flex-shrink: 0;
+  }
+
+  .restock-modal-lead {
+    margin: 0 0 14px;
+    font-size: 14px;
+    color: #444;
+  }
+
+  .restock-modal-sub {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+  }
+
+  .restock-modal-list {
+    text-align: left;
+    margin: 0 0 14px;
+    padding-left: 18px;
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .restock-warning {
+    color: #c9302c;
+    font-weight: 500;
+    font-size: 13px;
+    margin: 0 0 18px;
+  }
+
+  .restock-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .restock-modal-actions .btn-danger {
+    background: #c9302c;
+    border: none;
+    color: #fff;
+  }
+
+  .restock-modal-actions .btn-danger:hover {
+    background: #ad2a26;
+  }
+
+  .restock-modal-actions .btn-neutral {
+    background: #f1f1f1;
+    border: none;
+    color: #333;
+  }
+
+  .restock-modal-actions .btn-neutral:hover {
+    background: #e4e4e4;
+  }
+  
+  /* ── Search results info ─────────────────────────────── */
+  .search-results-info {
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  
+  /* ── Payment type badge ──────────────────────────────── */
+  .payment-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+/* @media (max-width: 768px) {
+  .date-range-container { flex-wrap: wrap; gap: 8px; }
+  .date-range { width: 100%; }
+  .date-range .date-input { flex: 1; min-width: 130px; }
+  .date-filter-btn { width: 100%; }
+
+  .search-type-wrapper { width: 100%; }
+  .search-type-select  { flex: 1; }
+  .search-group        { width: 100%; }
+
+  .restock-modal-content  { width: 94%; max-width: 420px; padding: 16px; }
+  .restock-modal-actions  { flex-direction: column; gap: 8px; }
+  .restock-modal-actions .btn-danger,
+  .restock-modal-actions .btn-neutral { width: 100%; }
+} */
+
+
+@media (max-width: 991px) {
+  .date-range-container { flex-wrap: wrap; gap: 8px; }
+
+  /* "All Payments" dropdown — daily-sale sizing */
+  .date-range-container > select {
+    flex: 0 0 auto;
+    width: 150px !important;
+    max-width: 100%;
+  }
+
+  .search-type-wrapper { flex-shrink: 0; gap: 5px; }
+  .search-type-select  { width: 118px !important; margin-right: 0 !important; }
+
+  .restock-modal-content { width: 94%; max-width: 420px; padding: 16px; }
+  .restock-modal-actions { flex-direction: column; gap: 8px; }
+  .restock-modal-actions .btn-danger,
+  .restock-modal-actions .btn-neutral { width: 100%; }
+}
+

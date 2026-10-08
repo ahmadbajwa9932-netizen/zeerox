@@ -1,0 +1,423 @@
+/* settings.module.css */
+
+/* ─── CONTAINER ──────────────────────────────────────── */
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5%;
+}
+
+.mainText {
+    color: rgba(27, 26, 26, 0.932);
+}
+
+.subText {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #35302d;
+    text-transform: capitalize;
+    margin-bottom: 1.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ─── BACK BUTTON ────────────────────────────────────── */
+.backButton {
+    background: #95a5a6;
+    border-radius: 5px;
+    border: none;
+    width: auto;
+    padding: 7px 12px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.backButton:hover {
+    background: #7f8c8d;
+}
+
+/* ─── POPUP TOAST ────────────────────────────────────── */
+.popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 99999;
+    animation: fadeInOut 3s ease forwards;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.popupSuccess {
+    background: #27ae60;
+}
+
+.popupError {
+    background: #e74c3c;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ─── SETTING CARDS ──────────────────────────────────── */
+.settingCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #f9f9f9;
+}
+
+.settingCard h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.settingCard p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.settingCard:hover {
+    border-color: #007bff;
+    background-color: #e9f2ff;
+}
+
+/* ─── MODAL ──────────────────────────────────────────── */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalOpen {
+    display: block;
+}
+
+.modalContent {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+}
+
+.modalContentWide {
+    height: 500px;
+    width: 500px;
+    max-width: 700px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.modalContentMd {
+    max-width: 500px;
+}
+
+.modalContentSm {
+    max-width: 400px;
+}
+
+.modalContent h2 {
+    margin-top: 0;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+/* ─── FORM ───────────────────────────────────────────── */
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.formGroup input,
+.formGroup select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.helpText {
+    color: #666;
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.formRow {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.formSection {
+    margin-bottom: 10px;
+}
+
+.createUnitCard {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.createUnitForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inlineFormGroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.inlineFormGroup label {
+    margin-bottom: 0;
+}
+
+.inlineFormGroup input {
+    width: 230px;
+}
+
+.centerRow {
+    display: flex;
+    justify-content: center;
+}
+
+.unitsList {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.unitRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.unitRowName {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.unitRowDisplay {
+    font-size: 12px;
+    color: #888;
+}
+
+/* ─── BUTTONS ────────────────────────────────────────── */
+.btnSave {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btnSave:hover {
+    background-color: #0056b3;
+}
+
+.btnDeleteNow {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btnSave:disabled,
+.btnDeleteNow:disabled {
+    background: #6c757d !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btnDeleteNow {
+    background: #dc3545;
+    margin-top: 10px;
+}
+
+.btnDeleteNow:hover:not(:disabled) {
+    background: #c82333;
+}
+
+/* ─── TOGGLE SWITCH ──────────────────────────────────── */
+.toggleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.switch {
+    position: relative;
+    width: 46px;
+    height: 24px;
+    display: inline-block;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #ccc;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+    background: #007bff;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(22px);
+}
+
+/* ─── PREVIEW / WARNING BOXES ────────────────────────── */
+.previewBox {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.previewText {
+    font-size: 20px;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+.warningBox {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.warningBox strong {
+    color: #856404;
+}
+
+.warningBox p {
+    color: #856404;
+    margin: 5px 0 0 0;
+    font-size: 13px;
+}
+
+.protectedList {
+    margin: 5px 0 0 20px;
+    font-size: 13px;
+}
+
+.mutedText {
+    color: #666;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — appended. Nothing above this line is modified.
+   ═══════════════════════════════════════════════════════════ */
+
+   @media (max-width: 991px) {
+    .container { margin: 10px; }
+    .subText   { flex-wrap: wrap; gap: 8px; }
+    .backButton { margin-left: 0; font-size: 14px; }
+  
+    .formRow { flex-direction: column; gap: 8px; }
+    .inlineFormGroup { flex-direction: column; align-items: stretch; gap: 4px; }
+    .inlineFormGroup input { width: 100%; }
+  
+    .unitRow { flex-wrap: wrap; gap: 8px; }
+  }
+  
+  @media (max-width: 480px) {
+    .container { margin: 6px; }
+    .createUnitCard { padding: 12px; }
+    .unitsList { max-height: 320px; }
+  }
+  
